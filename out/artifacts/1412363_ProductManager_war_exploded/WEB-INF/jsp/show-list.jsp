@@ -72,15 +72,9 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-home"></i> Table <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/home.html">Table</a></li>
-                                    </ul>
+                                <li><a href="/show-list.html"><i class="fa fa-home"></i>View List Product</a>
                                 </li>
-                                <li><a><i class="fa fa-edit"></i> Add new user Form<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/form.html">Add new user Form</a></li>
-                                    </ul>
+                                <li><a href="/form.html"><i class="fa fa-edit"></i> Add new user Form</a>
                                 </li>
                             </ul>
 
@@ -167,7 +161,7 @@
                                             <td><p>${item.id}</p></td>
                                             <td><p>${item.productName}</p></td>
                                             <td><p>${item.cost}</p></td>
-                                            <td><p>${item.describe}</p></td>
+                                            <td><p>${item.description}</p></td>
                                         </tr>
                                     </c:forEach>
 

@@ -72,9 +72,9 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
-                            <li><a href="/show-list.html"><i class="fa fa-home"></i>View List Product</a>
+                            <li><a href="/profile-staff.html"><i class="fa fa-home"></i>View Profile</a>
                             </li>
-                            <li><a href="/form.html"><i class="fa fa-edit"></i> Add new user Form</a>
+                            <li><a href="/show-list-staff.html"><i class="fa fa-edit"></i>View List Product</a>
                             </li>
                         </ul>
 
@@ -118,7 +118,6 @@
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                             </ul>
-
                         </li>
 
                     </ul>
@@ -129,61 +128,7 @@
         <!-- /top navigation -->
         <!-- page content -->
         <div class="right_col" role="main">
-            <div class="">
-                <div class="page-title">
-                    <div class="title_left">
-                        <h3>Create new product form</h3>
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
-
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_content">
-                                <br />
-                                <form:form action="save.html" method="post" id="demo-form2" commandName="product" class="form-horizontal form-label-left">
-
-                                    <div class="form-group">
-                                    </div>
-                                    <div class="form-group">
-                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" for="name" path="productName">Name:<span class="required">*</span>
-                                        </form:label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <form:input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" path="productName"></form:input>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" for="cost" path="cost">Cost:<span class="required">*</span>
-                                        </form:label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <form:input path="cost" type="text" id="cost" name="last-name" required="required" class="form-control col-md-7 col-xs-12"></form:input>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" for="description" path="description">Description:</form:label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <form:input class="form-control col-md-7 col-xs-12" id="description" type="text" path="description"></form:input>
-                                        </div>
-                                    </div>
-                                    <div class="ln_solid"></div>
-                                    <div class="form-group">
-                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                            <button class="btn btn-primary" type="button">Cancel</button>
-                                            <button class="btn btn-primary" type="reset">Reset</button>
-                                            <button class="btn btn-primary" type="submit">Submit</button>
-
-                                        </div>
-                                    </div>
-
-                                </form:form>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -216,6 +161,7 @@
 <script src="<c:url value="/resources/js/vfs_fonts.js"/>" type="text/javascript"></script>
 <!-- Detail -->
 <script src="<c:url value="/resources/js/custom.min.js"/>" type="text/javascript"></script>
+
 
 </body>
 </html>

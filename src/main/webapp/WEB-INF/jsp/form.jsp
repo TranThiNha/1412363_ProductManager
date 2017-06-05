@@ -72,15 +72,9 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-home"></i> Table <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/home.html">Table</a></li>
-                                </ul>
+                            <li><a href="/show-list.html"><i class="fa fa-home"></i>View List Product</a>
                             </li>
-                            <li><a><i class="fa fa-edit"></i> Add new user Form<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/form.html">Add new user Form</a></li>
-                                </ul>
+                            <li><a href="/form.html"><i class="fa fa-edit"></i> Add new user Form</a>
                             </li>
                         </ul>
 
@@ -154,10 +148,10 @@
                                     <div class="form-group">
                                     </div>
                                     <div class="form-group">
-                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name" path="productName">Name:<span class="required">*</span>
+                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" for="name" path="productName">Name:<span class="required">*</span>
                                         </form:label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <form:input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12" path="productName"></form:input>
+                                            <form:input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" path="productName"></form:input>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -168,9 +162,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" path="describe">Describe:</form:label>
+                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" for="description" path="description">Description:</form:label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <form:input class="form-control col-md-7 col-xs-12" type="text" name="middle-name" path="describe"></form:input>
+                                            <form:input class="form-control col-md-7 col-xs-12" id="description" type="text" path="description"></form:input>
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>

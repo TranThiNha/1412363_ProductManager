@@ -16,6 +16,7 @@ import model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by MyPC on 6/2/2017.
@@ -23,8 +24,8 @@ import java.util.List;
 @Controller
 public class LinkNavigation {
 
-    //ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
-    //ProductDaoImpl productDao = (ProductDaoImpl)context.getBean("productDao");
+    ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+    ProductDaoImpl productDao = (ProductDaoImpl)context.getBean("productDao");
 
     @RequestMapping(value = "/home",method = RequestMethod.GET)
     public ModelAndView homePage(){
@@ -44,16 +45,11 @@ public class LinkNavigation {
     }
 
 
-
-
-    static List<Product> products = new ArrayList<Product>();//productDao.getAllProduct();
+    List<Product> products = productDao.getAllProduct();
 
     @RequestMapping(value = "/show-list")
     public String adminPage( Model model){
         //List<User> userList = User.getAllUser();
-
-
-
 
         Product product = new Product(1,"dien thoai",123234.03,"describe");
         products.add(product);
@@ -69,6 +65,10 @@ public class LinkNavigation {
     @RequestMapping(value = "/delete")
     public String delete(@RequestParam("id") int[] indexs,Model modelMap){
         for (int i = 0; i < indexs.length ; i++){
+            productDao.deleteProduct(products.get(indexs[i]).getId());
+        }
+
+        for (int i=  indexs.length - 1; i>=0;i++){
             products.remove(indexs[i]);
         }
 
@@ -77,9 +77,14 @@ public class LinkNavigation {
     }
 
     @RequestMapping(value = "/edit")
-    public String edit(@RequestParam("index") int index,@RequestParam("id")int id, Model modelMap){
-        Product product = products.get(index);
-        product.setId(id);
+    public String edit(@RequestParam("index") int index,
+                       @RequestParam("id")int id,
+                       @RequestParam("name")String name,
+                       @RequestParam("cost")Double cost,
+                       @RequestParam("description")String description, Model modelMap){
+
+        Product product = new Product(id,name,cost,description);
+        productDao.updateProduct(product);
         products.set(index,product);
         modelMap.addAttribute("index", index);
         modelMap.addAttribute("listResult",products);
@@ -97,9 +102,28 @@ public class LinkNavigation {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("product") Product product, BindingResult result, ModelMap modelMap){
+        product.setId(generateID());
+        productDao.createProduct(product);
         products.add(product);
         modelMap.addAttribute("listResult",products);
         return "show-list";
+    }
+
+    public int generateID(){
+        Random random = new Random();
+
+        List<Integer>existIDList = new ArrayList<Integer>();
+        for (int  i = 0 ; i < products.size() ; i++){
+            existIDList.add(products.get(i).getId());
+        }
+
+        int newId = random.nextInt(Integer.MAX_VALUE);
+        while (existIDList.contains(newId)){
+            newId = random.nextInt(Integer.MAX_VALUE);
+        }
+
+        return newId;
+
     }
 
 

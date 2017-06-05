@@ -72,9 +72,9 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
-                            <li><a href="/show-list.html"><i class="fa fa-home"></i>View List Product</a>
+                            <li><a href="/profile-staff.html"><i class="fa fa-home"></i>View Profile</a>
                             </li>
-                            <li><a href="/form.html"><i class="fa fa-edit"></i> Add new user Form</a>
+                            <li><a href="/show-list-staff.html"><i class="fa fa-edit"></i>View List Product</a>
                             </li>
                         </ul>
 
@@ -118,7 +118,6 @@
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                             </ul>
-
                         </li>
 
                     </ul>
@@ -132,7 +131,7 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Create new product form</h3>
+                        <h3>List of product</h3>
                     </div>
                 </div>
 
@@ -142,46 +141,43 @@
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="x_panel">
                             <div class="x_content">
-                                <br />
-                                <form:form action="save.html" method="post" id="demo-form2" commandName="product" class="form-horizontal form-label-left">
 
-                                    <div class="form-group">
-                                    </div>
-                                    <div class="form-group">
-                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" for="name" path="productName">Name:<span class="required">*</span>
-                                        </form:label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <form:input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" path="productName"></form:input>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" for="cost" path="cost">Cost:<span class="required">*</span>
-                                        </form:label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <form:input path="cost" type="text" id="cost" name="last-name" required="required" class="form-control col-md-7 col-xs-12"></form:input>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <form:label class="control-label col-md-3 col-sm-3 col-xs-12" for="description" path="description">Description:</form:label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <form:input class="form-control col-md-7 col-xs-12" id="description" type="text" path="description"></form:input>
-                                        </div>
-                                    </div>
-                                    <div class="ln_solid"></div>
-                                    <div class="form-group">
-                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                            <button class="btn btn-primary" type="button">Cancel</button>
-                                            <button class="btn btn-primary" type="reset">Reset</button>
-                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                <button type="button" style="width: 80px;height: 30px; background-color: #169F85; color: white;" onclick="deleteProduct()">Delete</button>
+                                <table id="my-table" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 14px;">Selected</th>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Cost</th>
+                                        <th>Describe</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                                        </div>
-                                    </div>
+                                    <c:forEach items="${listResult}" var="item">
+                                        <tr class='clickable-row'>
+                                            <td><input type="checkbox" name="_Checkbox[]" class="_Checkbox" style="width: 100%;"></td>
+                                            <td><p>${item.id}</p></td>
+                                            <td><p>${item.productName}</p></td>
+                                            <td><p>${item.cost}</p></td>
+                                            <td><p>${item.description}</p></td>
+                                        </tr>
+                                    </c:forEach>
 
-                                </form:form>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+                    <div class="x_panel">
+                        <!-- /page content -->            <!-- footer content -->
+                        <footer>
 
+                            <div class="clearfix"></div>
+                        </footer>
+                        <!-- /footer content -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -216,6 +212,22 @@
 <script src="<c:url value="/resources/js/vfs_fonts.js"/>" type="text/javascript"></script>
 <!-- Detail -->
 <script src="<c:url value="/resources/js/custom.min.js"/>" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function($) {
+        $(".clickable-row").click(function() {
+
+            var index = $(this).closest("tr").index();
+            var row = $(this);
+            if (row.find('input[type="checkbox"]').is(':checked')){
+            }else{
+                window.location = "<c:url value="detail.html"/>" +"?id="+index;
+            }
+
+        });
+    });
+</script>
 
 </body>
 </html>

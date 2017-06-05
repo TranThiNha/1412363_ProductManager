@@ -1,6 +1,7 @@
 package model;
 
 import com.sun.istack.internal.NotNull;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -13,12 +14,16 @@ import java.io.Serializable;
  */
 public class UserRoleId implements Serializable {
 
+    @Id
     @Column(name = "username")
+    @GenericGenerator(name="gen",strategy="increment")
+    @GeneratedValue(generator="gen")
     private String username;
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Column(name = "role_id")
+    @GenericGenerator(name="gen",strategy="increment")
+    @GeneratedValue(generator="gen")
     private int roleId;
 
     public UserRoleId() {

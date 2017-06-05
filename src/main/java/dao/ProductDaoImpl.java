@@ -1,16 +1,30 @@
 package dao;
 
 import model.Product;
-import utils.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import java.util.List;
-
-import static utils.HibernateUtil.getSession;
 
 /**
  * Created by MyPC on 6/4/2017.
  */
 public class ProductDaoImpl implements ProductDao {
+
+    private static SessionFactory sessionFactory;
+
+    public SessionFactory getSessionFactory(){
+        return sessionFactory;
+    }
+
+    public void setSessionFactory(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
+    }
+
+    public static Session getSession(){
+        return sessionFactory.getCurrentSession();
+    }
+
     public void createProduct(Product product) {
         try {
 
@@ -72,6 +86,5 @@ public class ProductDaoImpl implements ProductDao {
         return productList;
     }
 
-    public void setSessionFactory(org.hibernate.SessionFactory sessionFactory) {
-    }
+
 }

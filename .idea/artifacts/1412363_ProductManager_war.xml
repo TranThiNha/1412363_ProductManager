@@ -3,6 +3,21 @@
     <output-path>$PROJECT_DIR$/out/artifacts/1412363_ProductManager_war</output-path>
     <root id="archive" name="1412363_ProductManager_war.war">
       <element id="artifact" artifact-name="1412363_ProductManager:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-dbcp:commons-dbcp:1.4" />
+          <element id="library" level="project" name="commons-fileupload:commons-fileupload:1.3.2" />
+          <element id="library" level="project" name="javax.persistence:persistence-api:1.0" />
+          <element id="library" level="project" name="javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="jstl:jstl:1.2" />
+          <element id="library" level="project" name="org.slf4j:slf4j-log4j12:1.7.25" />
+          <element id="library" level="project" name="org.springframework.security:spring-security-config:4.2.2.RELEASE" />
+          <element id="library" level="project" name="org.springframework.security:spring-security-core:4.2.2.RELEASE" />
+          <element id="library" level="project" name="org.springframework.security:spring-security-web:4.2.2.RELEASE" />
+          <element id="library" level="project" name="mysql:mysql-connector-java:6.0.6" />
+          <element id="library" level="project" name="mysql-connector-java-5.1.42-bin" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

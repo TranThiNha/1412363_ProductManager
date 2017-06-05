@@ -71,15 +71,9 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-home"></i> Table <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/home.html">Table</a></li>
-                                </ul>
+                            <li><a href="/show-list.html"><i class="fa fa-home"></i>View List Product</a>
                             </li>
-                            <li><a><i class="fa fa-edit"></i> Add new user Form<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/form.html">Add new user Form</a></li>
-                                </ul>
+                            <li><a href="/form.html"><i class="fa fa-edit"></i> Add new user Form</a>
                             </li>
                         </ul>
 
@@ -153,7 +147,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">ID:<span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="id" class="form-control col-md-7 col-xs-12" value="${model.id}">
+                                            <input type="text" id="id" disabled class="form-control col-md-7 col-xs-12" value="${model.id}">
                                         </div>
                                     </div>
 
@@ -161,19 +155,19 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name:<span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="name"  class="form-control col-md-7 col-xs-12" value="${model.productName}">
+                                            <input type="text" id="name" disabled class="form-control col-md-7 col-xs-12" value="${model.productName}">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="cost" class="control-label col-md-3 col-sm-3 col-xs-12">Cost:</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="cost" class="form-control col-md-7 col-xs-12" type="text" name="middle-name" value="${model.cost}">
+                                            <input id="cost" class="form-control col-md-7 col-xs-12" disabled type="text" name="middle-name" value="${model.cost}">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="describe">Describe:</label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="describe">Description:</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control col-md-7 col-xs-12" type="text" id="describe" value="${model.describe}">
+                                            <input class="form-control col-md-7 col-xs-12" disabled type="text" id="describe" value="${model.description}">
                                         </div>
                                     </div>
                                     <div class="ln_solid"></div>
@@ -235,12 +229,11 @@
                     var describe = $("#describe").val();
 
 
-                    window.location = "<c:url value="edit.html"/>" +"?index="+${index} +"&id="+id;
+                    window.location = "<c:url value="edit.html"/>" +"?index="+${index} +"&id="+id+"&name="+name+"&cost="+cost+"&description="+describe;
 
                 }
                 else{
                     document.getElementById("edit").innerHTML = "Save";
-                    document.getElementById("id").disabled = false;
                     document.getElementById("name").disabled = false;
                     document.getElementById("cost").disabled = false;
                     document.getElementById("describe").disabled = false;

@@ -1,6 +1,7 @@
 package model;
 
 import com.sun.istack.internal.NotNull;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,10 +12,11 @@ import java.io.Serializable;
 @Entity
 @Table(name = "product")
 public class Product implements Serializable {
-    @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    @Column(name = "id")
 
+    @Id
+    @Column(name = "id")
+    @GenericGenerator(name="gen",strategy="increment")
+    @GeneratedValue(generator="gen")
     private int id;
 
     @Column(name = "product_name")
@@ -25,17 +27,19 @@ public class Product implements Serializable {
     @NotNull
     private Double cost;
 
-    @Column(name = "describe")
+    @Column(name = "description")
     @NotNull
-    private String describe;
+    private String description;
 
-    public Product(){}
+    public Product(){
 
-    public Product(int id, String name, Double cost,String describe){
+    }
+
+    public Product(int id, String productName, Double cost,String describe){
         this.id = id;
-        this.productName = name;
+        this.productName = productName;
         this.cost = cost;
-        this.describe = describe;
+        this.description = describe;
     }
 
 
@@ -63,11 +67,11 @@ public class Product implements Serializable {
         this.cost = cost;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setdescription(String describe) {
+        this.description = describe;
     }
 }
