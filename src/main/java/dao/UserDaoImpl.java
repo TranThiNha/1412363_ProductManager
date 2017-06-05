@@ -28,7 +28,7 @@ public class UserDaoImpl implements UserDao {
     }
 
 
-    public User get(String username) {
+    public User getUser(String username) {
         User user = null;
         try {
             getSession().beginTransaction();

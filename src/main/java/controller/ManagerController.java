@@ -22,7 +22,7 @@ import java.util.Random;
  * Created by MyPC on 6/2/2017.
  */
 @Controller
-public class LinkNavigation {
+public class ManagerController {
 
     ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
     ProductDaoImpl productDao = (ProductDaoImpl)context.getBean("productDao");

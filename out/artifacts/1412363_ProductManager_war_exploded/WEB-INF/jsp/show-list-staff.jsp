@@ -119,6 +119,7 @@
                                 <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                             </ul>
                         </li>
+
                     </ul>
                 </nav>
             </div>
@@ -126,14 +127,59 @@
 
         <!-- /top navigation -->
         <!-- page content -->
-        <div class="right_col" role="main" style=" position:absolute;text-align:center;">
-            <img style="display: block; margin: auto; border-radius: 10px;width: 50%;height: 50%;" src="<c:url value="/resources/cover.jpg"/>">
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="page-title">
+                    <div class="title_left">
+                        <h3>List of product</h3>
+                    </div>
+                </div>
 
-            <h1 style=" font-family:  'Trocchi', serif; font-size: 60px;font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 40px; vertical-align:middle; ">${full_name}</h1>
-            <h5 style=" font-family:  'Trocchi', serif; font-size: 50px;font-weight: 100; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 30px; vertical-align:middle; ">Username: ${user_name}</h5>
-            <h5 style=" font-family:  'Trocchi', serif; font-size: 50px;font-weight: 100; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 30px; vertical-align:middle; ">Gender: ${gender}</h5>
-            <h5 style=" font-family:  'Trocchi', serif; font-size: 50px;font-weight: 100; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 30px; vertical-align:middle; ">Birthday: ${birthday}</h5>
+                <div class="clearfix"></div>
 
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_content">
+
+                                <button type="button" style="width: 80px;height: 30px; background-color: #169F85; color: white;" onclick="deleteProduct()">Delete</button>
+                                <table id="my-table" class="table table-striped table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 14px;">Selected</th>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Cost</th>
+                                        <th>Describe</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <c:forEach items="${listResult}" var="item">
+                                        <tr class='clickable-row'>
+                                            <td><input type="checkbox" name="_Checkbox[]" class="_Checkbox" style="width: 100%;"></td>
+                                            <td><p>${item.id}</p></td>
+                                            <td><p>${item.productName}</p></td>
+                                            <td><p>${item.cost}</p></td>
+                                            <td><p>${item.description}</p></td>
+                                        </tr>
+                                    </c:forEach>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="x_panel">
+                        <!-- /page content -->            <!-- footer content -->
+                        <footer>
+
+                            <div class="clearfix"></div>
+                        </footer>
+                        <!-- /footer content -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -167,6 +213,21 @@
 <!-- Detail -->
 <script src="<c:url value="/resources/js/custom.min.js"/>" type="text/javascript"></script>
 
+<script type="text/javascript">
+
+    jQuery(document).ready(function($) {
+        $(".clickable-row").click(function() {
+
+            var index = $(this).closest("tr").index();
+            var row = $(this);
+            if (row.find('input[type="checkbox"]').is(':checked')){
+            }else{
+                window.location = "<c:url value="detail.html"/>" +"?id="+index;
+            }
+
+        });
+    });
+</script>
 
 </body>
 </html>

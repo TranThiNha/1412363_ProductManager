@@ -130,9 +130,9 @@
             <img style="display: block; margin: auto; border-radius: 10px;width: 50%;height: 50%;" src="<c:url value="/resources/cover.jpg"/>">
 
             <h1 style=" font-family:  'Trocchi', serif; font-size: 60px;font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 40px; vertical-align:middle; ">${full_name}</h1>
-            <h5 style=" font-family:  'Trocchi', serif; font-size: 50px;font-weight: 100; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 30px; vertical-align:middle; ">Username: ${user_name}</h5>
-            <h5 style=" font-family:  'Trocchi', serif; font-size: 50px;font-weight: 100; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 30px; vertical-align:middle; ">Gender: ${gender}</h5>
-            <h5 style=" font-family:  'Trocchi', serif; font-size: 50px;font-weight: 100; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 30px; vertical-align:middle; ">Birthday: ${birthday}</h5>
+            <h5 style=" font-family:  'Trocchi', serif; font-size: 50px;font-weight: 150; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 30px; vertical-align:middle; ">Username: ${user_name}</h5>
+            <h5 style=" font-family:  'Trocchi', serif; font-size: 50px;font-weight: 150; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 30px; vertical-align:middle; ">Gender: ${gender}</p>
+            <h5 style=" font-family:  'Trocchi', serif; font-size: 50px;font-weight: 150; line-height: 32px; margin: 0 0 72px; text-align: center; color: #3762bc; margin:auto; margin-top: 30px; vertical-align:middle; ">Birthday: ${birthday}</h5>
 
         </div>
     </div>
